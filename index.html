@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Эля Рыбина — коучинг (макет 2)</title>
+<meta name="description" content="Коуч ICF Эля Рыбина: диагностика, маршрут и ритм для тех, кому тяжело, и для тех, кто хочет сменить дело. Квиз на 2 минуты и запись в Telegram.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Эля Рыбина — коучинг без надрыва">
+<meta property="og:description" content="Квиз на 2 минуты: какой первый шаг подойдёт именно вам. Превью нового сайта.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#EFE6D8; --forest2:#FBF7F0; --moss:#3F6629; --lime:#3F6629; --wine:#7A2342;
+  --paper:#F8F3EA; --ink:#2B211C;
+  --on-dark:#2B211C; --mut-dark:#6A5A4E; --line-d:#D9CBB6;
+  --mut-light:#6A5A4E; --line-l:#D9CBB6;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:Onest,system-ui,sans-serif;
+  --gut:clamp(20px,4vw,48px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);font-size:18px;line-height:1.55;color:var(--on-dark);background:var(--forest);-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.dark{background:var(--forest);color:var(--on-dark)}
+.light{background:var(--paper);color:var(--ink)}
+section{padding-block:clamp(64px,9vw,120px)}
+.kicker{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--lime);margin-bottom:18px}
+.light .kicker{color:var(--moss)}
+.hero .kicker{text-transform:none;letter-spacing:.02em;font-size:17px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+h1{font-size:clamp(44px,5.4vw,80px);line-height:1.12;text-wrap:balance}
+h1 em,h2 em{font-style:italic;color:var(--lime)}
+.light h2 em{color:var(--moss)}
+h2{font-size:clamp(36px,4.4vw,58px);line-height:1.2;text-wrap:balance;max-width:24ch}
+h3{font-size:30px;line-height:1.22}
+p{text-wrap:pretty}
+.lead{font-size:clamp(19px,1.6vw,22px);color:var(--mut-dark);max-width:46ch}
+.light .lead{color:var(--mut-light)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:6px;font-weight:600;font-size:17px;text-decoration:none;border:1px solid transparent;transition:transform .2s,background-color .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:#17220F}
+.btn-ghost{background:transparent;border-color:var(--mut-dark);color:var(--on-dark)}
+.btn-ghost:hover{background:var(--on-dark);color:var(--forest)}
+.btn-ink{background:var(--forest);color:var(--on-dark)}
+.btn-line{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* preview ribbon */
+.ribbon{background:var(--lime);color:#17220F;font-size:15px}
+.ribbon .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding-block:9px}
+.ribbon button{background:#17220F;color:var(--lime);border:0;border-radius:5px;padding:7px 14px;font-weight:600;font-size:14px;white-space:nowrap}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:var(--forest);border-bottom:1px solid var(--line-d)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px}
+.brand{font-family:var(--serif);font-size:28px;font-weight:600;text-decoration:none;line-height:1.2}
+.brand small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--mut-dark);margin-top:5px}
+nav.main{display:flex;gap:28px}
+nav.main a{text-decoration:none;font-size:16px;color:var(--mut-dark);padding-block:8px}
+nav.main a:hover{color:var(--on-dark)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-d);border-radius:6px;padding:9px 14px;font-size:15px}
+.hdr-cta{display:inline-flex}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,88px) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero .lead{margin:26px 0 34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.photo{border:1px solid var(--line-d);border-radius:8px;overflow:hidden;background:#e6e2e1}
+.photo img{width:100%}
+.cap{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--mut-dark);margin-top:12px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--line-d)}
+.facts div{padding:22px 24px 26px 0;font-size:16px;color:var(--mut-dark)}
+.facts div+div{padding-left:24px;border-left:1px solid var(--line-d)}
+.facts b{display:block;font-family:var(--serif);font-size:26px;line-height:1.15;font-weight:500;color:var(--on-dark);margin-bottom:6px}
+
+/* doors */
+.doors{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px;align-items:start}
+.door{display:block;text-align:left;background:transparent;border:1px solid var(--line-l);border-radius:8px;padding:26px 28px 24px;width:100%;transition:background-color .2s,color .2s,transform .2s}
+.door:hover{background:var(--forest);color:var(--on-dark);transform:translateY(-2px)}
+.door span.n{font-family:var(--serif);font-size:40px;line-height:1.2;color:var(--moss)}
+.door:hover span.n{color:var(--lime)}
+.door p{font-size:21px;line-height:1.38;margin:14px 0 18px}
+.door span.go{font-size:15px;font-weight:600;letter-spacing:.02em}
+
+/* quiz */
+.quiz-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.quiz-grid .lead{margin-top:24px}
+.fine{font-size:15px;color:var(--mut-dark);margin-top:20px;max-width:46ch}
+.qcard{background:var(--forest2);border:1px solid var(--line-d);border-radius:10px;padding:clamp(22px,3vw,36px)}
+.qprog{height:3px;background:var(--line-d);border-radius:2px;overflow:hidden;margin-bottom:26px}
+.qprog i{display:block;height:100%;width:100%;background:var(--lime);transform-origin:left;transform:scaleX(.25);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.qstep{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut-dark);margin-bottom:10px}
+.qcard h3{font-size:clamp(28px,3vw,36px);margin-bottom:22px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;background:transparent;border:1px solid var(--line-d);border-radius:8px;padding:15px 18px;font-size:18px;line-height:1.35;transition:border-color .2s,background-color .2s}
+.opt:hover{border-color:var(--lime);background:rgba(214,242,92,.06)}
+.qback{background:none;border:0;color:var(--mut-dark);font-size:15px;margin-top:18px;text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+.res h3{font-size:clamp(34px,4vw,48px);margin-bottom:14px}
+.res h3 em{color:var(--lime)}
+.res p{color:var(--mut-dark);margin-bottom:12px}
+.res .rec{border-top:1px solid var(--line-d);margin-top:20px;padding-top:20px}
+.res .rec b{display:block;font-family:var(--serif);font-size:28px;font-weight:500;line-height:1.15;color:var(--on-dark);margin:4px 0 16px}
+.hidden{display:none!important}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:34px;height:1px;background:var(--moss);transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.steps.in::before{transform:scaleX(1)}
+.step{padding:0 28px 0 0;position:relative}
+.step .num{font-family:var(--serif);font-size:68px;line-height:1.2;background:var(--paper);display:inline-block;padding-right:16px;color:var(--moss)}
+.step h3{font-size:30px;margin:18px 0 10px}
+.step p{color:var(--mut-light);font-size:17px}
+.shifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
+.shift{border-top:1px solid var(--ink);padding-top:16px;font-size:20px;line-height:1.35}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;align-items:start}
+.fcard{border:1px solid var(--line-d);border-radius:10px;padding:26px 24px;background:var(--forest2);display:flex;flex-direction:column;gap:14px;transition:border-color .3s}
+.fcard.hl{border-color:var(--lime)}
+.fcard h3{font-size:30px}
+.fcard .what{color:var(--on-dark);font-size:17px}
+.fcard .for{color:var(--mut-dark);font-size:16px}
+.price{font-family:var(--serif);font-size:38px;line-height:1.2;margin-top:6px}
+.price small{font-family:var(--sans);font-size:15px;color:var(--mut-dark)}
+.tag{display:inline-block;align-self:flex-start;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--mut-dark);color:var(--mut-dark);border-radius:4px;padding:3px 8px}
+.fcard .btn{margin-top:6px;justify-content:center}
+
+/* reviews */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:36px 0 28px}
+.chip{background:transparent;border:1px solid var(--ink);border-radius:5px;padding:9px 16px;font-size:16px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.rev{columns:3;column-gap:16px}
+.rv{break-inside:avoid;border:1px solid var(--line-l);border-radius:8px;padding:24px;margin-bottom:16px;background:#fff}
+.rv q{display:block;font-family:var(--serif);font-size:25px;line-height:1.32;quotes:"«" "»"}
+.rv footer{margin-top:16px;font-size:15px;color:var(--mut-light)}
+.rv footer b{display:block;color:var(--ink);font-weight:600;font-size:16px}
+.rv.off{display:none}
+.src{font-size:15px;color:var(--mut-light);margin-top:12px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(32px,5vw,80px);align-items:start}
+.about-grid .photo{max-width:380px}
+.about-grid p{margin-top:18px;max-width:56ch;color:var(--mut-dark)}
+details{border-top:1px solid var(--line-d)}
+details:last-of-type{border-bottom:1px solid var(--line-d)}
+summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-family:var(--serif);font-size:27px;line-height:1.32;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:18px;font-family:var(--sans);font-size:28px;color:var(--lime)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 22px;max-width:60ch}
+.faq{margin-top:36px}
+
+/* channel */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;align-items:start}
+.post{display:block;text-decoration:none;border:1px solid var(--line-l);border-radius:8px;padding:24px;background:#fff;transition:transform .2s,border-color .2s}
+.post:hover{transform:translateY(-3px);border-color:var(--ink)}
+.post time{font-size:14px;color:var(--mut-light);letter-spacing:.04em}
+.post p{font-family:var(--serif);font-size:26px;line-height:1.32;margin:12px 0 18px}
+.post span{font-size:15px;font-weight:600}
+
+/* final */
+.final-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(32px,5vw,80px);align-items:center}
+.final .photo{max-width:340px}
+
+footer.site{background:var(--forest);border-top:1px solid var(--line-d);padding-block:36px;font-size:16px;color:var(--mut-dark)}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:baseline}
+footer.site .sep{font-style:normal}
+footer.site a{text-underline-offset:4px}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:50;display:none}
+.drawer.open{display:block}
+.drawer .bg{position:absolute;inset:0;background:rgba(10,16,12,.6)}
+.drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--paper);color:var(--ink);padding:28px 26px;overflow:auto}
+.drawer h2{font-size:34px;max-width:none;clear:both;padding-top:18px}
+.drawer ul{list-style:none;padding:0;margin:22px 0}
+.drawer li{border-top:1px solid var(--line-l);padding:14px 0;font-size:17px;display:flex;flex-direction:column;gap:8px}
+.drawer input[type=text]{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--mut-light);border-radius:6px;background:#fff;font:inherit;font-size:17px;color:var(--ink)}
+.drawer .x{float:right;background:none;border:1px solid var(--ink);border-radius:5px;padding:8px 14px;font-size:15px}
+
+.mmenu{display:none}
+.js .rise{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rise.in{opacity:1;transform:none}
+.h1l{display:block;opacity:0;transform:translateY(26px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.h1l:nth-child(2){animation-delay:.12s}.h1l:nth-child(3){animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.js .rise{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.h1l{animation-duration:.01s}.steps::before{transition:none}}
+
+@media (max-width:980px){
+  nav.main,.hdr-cta{display:none}
+  .menu-btn{display:block}
+  .mmenu.open{display:block;background:var(--forest);border-bottom:1px solid var(--line-d)}
+  .mmenu a{display:block;padding:16px var(--gut);border-top:1px solid var(--line-d);text-decoration:none;font-size:19px}
+  .hero-grid,.quiz-grid,.about-grid,.final-grid{grid-template-columns:1fr}
+  .hero-grid .photo-col{max-width:340px}
+  .facts{grid-template-columns:1fr}
+  .facts div,.facts div+div{padding:18px 0;border-left:0;border-top:1px solid var(--line-d)}
+  .facts div:first-child{border-top:0}
+  .doors{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .steps::before{display:none}
+  .step{padding:0}
+  .step .num{background:none}
+  .shifts{grid-template-columns:1fr}
+  .formats{grid-template-columns:1fr 1fr}
+  .rev{columns:1}
+  .posts{grid-template-columns:1fr}
+  .final .photo{max-width:260px}
+}
+@media (max-width:620px){
+  body{font-size:17px}
+  .formats{grid-template-columns:1fr}
+  .ribbon .wrap{flex-direction:column;align-items:flex-start;gap:8px}
+  .cta-row .btn{width:100%;justify-content:center}
+}
+
+.more-wrap{display:none;margin-top:8px}
+@media (max-width:620px){
+  section{padding-block:44px}
+  .hero{padding-block:28px 0}
+  h1{font-size:clamp(40px,11.5vw,52px)}
+  h2{font-size:clamp(32px,9vw,40px)}
+  .hero .lead{margin:18px 0 24px}
+  .hero-grid .photo-col{max-width:250px;margin-inline:auto}
+  .facts{display:none}
+  .hero{padding-bottom:44px}
+  .doors{gap:10px;margin-top:28px}
+  .door{padding:16px 18px}
+  .door span.n{display:none}
+  .door p{font-size:19px;margin:0 0 10px}
+  .steps{grid-template-columns:1fr 1fr;gap:26px 18px;margin-top:32px}
+  .step .num{font-size:46px;padding:0}
+  .step h3{font-size:26px;margin:8px 0 6px}
+  .step p{font-size:16px;text-wrap:balance}
+  footer.site .sep{display:none}
+  footer.site .wrap>span{display:flex;flex-direction:column;gap:0}
+  .shifts{margin-top:36px;gap:12px}
+  .shift{font-size:18px}
+  .formats{margin-top:30px;gap:12px}
+  .fcard{padding:20px 18px;gap:10px}
+  .chips{margin:24px 0 20px}
+  .rv{padding:18px}
+  .rv q{font-size:22px}
+  .rv.extra{display:none}
+  #rev.all-shown .rv.extra{display:block}
+  .rv.extra.off{display:none!important}
+  .more-wrap{display:block}
+  .about-grid .photo{max-width:230px;margin-inline:auto}
+  .faq{margin-top:24px}
+  summary{font-size:23px;padding:16px 36px 16px 0}
+  .post:nth-child(3){display:none}
+  .posts{margin-top:28px;gap:12px}
+  .post{padding:18px}
+  .post p{font-size:23px;margin:8px 0 12px}
+  .final .photo{display:none}
+}
+
+.nw{white-space:nowrap}
+.photo{background:#DCE5DF}
+.price{font-family:var(--sans);font-weight:600;font-size:30px;letter-spacing:-.01em}
+.price small{font-weight:400}
+.step .num{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.formats{align-items:stretch}
+.fcard .btn{margin-top:auto}
+.posts{align-items:stretch}
+.post{display:flex;flex-direction:column}
+.post p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.post span{margin-top:auto}
+.btn{text-align:center;white-space:nowrap}
+.ribbon button,.menu-btn{min-height:44px}
+footer.site a{display:inline-block;padding-block:12px}
+html{scroll-padding-top:69px}
+.final .photo{justify-self:end}
+.shift,.facts div,.step p,.res p,.hero .lead,.lead{text-wrap:pretty}
+
+/* макет 2: тёплые светлые тона по анкете (2026-11-18) */
+.btn-lime{background:var(--moss);color:#fff}
+.btn-lime:hover{background:#34561F}
+.ribbon{background:var(--wine);color:#fff}
+.ribbon button{background:#fff;color:var(--wine)}
+h1 em,h2 em,.light h2 em,.res h3 em{color:var(--wine)}
+.kicker,.light .kicker{color:var(--wine)}
+.photo{background:#E9E1D3;border-color:var(--line-d)}
+header.top,.mmenu.open{background:var(--paper)}
+.opt:hover{background:rgba(63,102,41,.07)}
+:focus-visible{outline-color:var(--moss)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.door:hover{background:var(--moss);color:#fff}
+.door:hover span.n{color:#fff}
+.rv{background:#FFFDF9}
+.post{background:#FFFDF9}
+.final{background:#DDE5D3}
+.final .btn-ghost{border-color:var(--ink)}
+footer.site{background:var(--forest)}
+.qcard,.fcard{background:var(--forest2)}
+.fcard.hl{border-color:var(--moss);box-shadow:inset 0 0 0 1px var(--moss)}
+.formats{grid-template-columns:repeat(3,1fr)}
+.quote{font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);line-height:1.3;border-left:3px solid var(--wine);padding-left:22px;margin:28px 0 8px;max-width:30ch}
+.quote small{display:block;font-family:var(--sans);font-size:15px;color:var(--mut-dark);margin-top:10px}
+.videoph{margin-top:28px;border:1.5px dashed var(--mut-dark);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:center;max-width:520px}
+.videoph i{flex:none;width:54px;height:54px;border-radius:50%;background:var(--moss);position:relative}
+.videoph i::after{content:"";position:absolute;left:21px;top:16px;border-left:16px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.videoph p{margin:0!important;font-size:16px;color:var(--ink)!important}
+.wait{margin-top:28px;font-size:17px;color:var(--mut-dark)}
+.wait a{color:var(--ink)}
+.facts b{font-size:28px}
+@media (max-width:980px){.formats{grid-template-columns:1fr}.about-grid>div:first-child .photo{position:static}}
+.about-grid>div:first-child .photo{position:sticky;top:96px}
+.fcard .price{margin-top:auto;font-variant-numeric:tabular-nums}
+.fcard .btn{margin-top:6px}
+.doors{align-items:stretch}
+.door{display:flex;flex-direction:column}
+.door span.go{margin-top:auto}
+.post p{-webkit-line-clamp:4}
+.steps+.shifts{margin-top:72px}
+@media (max-width:620px){.chips{gap:8px}.chip{padding:8px 12px;font-size:15px}}
+
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="wrap">
+  <span>Макет 2 для Эли. Тёплые светлые тона, тексты по анкете. Порядок блоков черновой, всё кликается.</span>
+  <button type="button" id="needBtn">Что нужно от тебя (<span id="needN">6</span>)</button>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">Эля Рыбина<small>коучинг</small></a>
+  <nav class="main" aria-label="Разделы">
+    <a href="#o-vas">Где вы сейчас</a><a href="#format">Форматы</a><a href="#otzyvy">Отзывы</a><a href="#obo-mne">Обо мне</a><a href="#kanal">Канал</a>
+  </nav>
+  <a class="btn btn-lime hdr-cta" href="#kviz">Квиз на 2 минуты</a>
+  <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mmenu">Меню</button>
+</div>
+<div class="mmenu" id="mmenu">
+  <a href="#kviz">Квиз на 2 минуты</a><a href="#format">Форматы</a><a href="#otzyvy">Отзывы</a><a href="#obo-mne">Обо мне</a><a href="#kanal">Канал</a>
+</div></header>
+
+<main id="top">
+<section class="hero light">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">Коуч ICF (ACC) · руководитель в&nbsp;IT</p>
+        <h1><span class="h1l">Если вам тяжело —</span><span class="h1l">это не значит, что с вами</span><span class="h1l">что-то <em>не так</em></span></h1>
+        <p class="lead">Можно выдохнуть и вернуть ясность. Начать двигаться в лёгкости, без надрыва.</p>
+        <div class="cta-row">
+          <a class="btn btn-lime" href="#kviz">Пройти квиз за 2 минуты</a>
+          <a class="btn btn-ghost" href="#format">Посмотреть форматы</a>
+        </div>
+      </div>
+      <div class="photo-col">
+        <div class="photo"><img src="assets/IMG_0278.webp" width="854" height="1280" alt="Эля Рыбина с ноутбуком в оливковой куртке" fetchpriority="high"></div>
+        <div class="cap"><span>Эля Рыбина</span><span>коуч ICF</span></div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><b>10 лет в digital и IT</b>развиваю технологические бизнесы, отвечаю за продажи и P&amp;L</div>
+      <div><b>6 лет управляю командами</b>знаю, как выглядит нагрузка изнутри</div>
+      <div><b>Коуч ICF (ACC)</b>работаю с женщинами-руководителями, предпринимателями и специалистами</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="o-vas">
+  <div class="wrap">
+    <h2>Где вы <em>сейчас?</em></h2>
+    <p class="lead" style="margin-top:20px">Выберите фразу, которая ближе. Мы подсветим формат, с которого удобнее начать.</p>
+    <div class="doors">
+      <button class="door" type="button" data-fmt="diag"><p>Вы многого достигли, но счастья от этого не прибавилось</p><span class="go">К подходящему формату →</span></button>
+      <button class="door" type="button" data-fmt="weekly"><p>Работаете на износ и хочется перестать пахать</p><span class="go">К подходящему формату →</span></button>
+      <button class="door" type="button" data-fmt="diag"><p>Хочется сменить работу или начать своё дело, но страшно и непонятно с чего начать</p><span class="go">К подходящему формату →</span></button>
+      <button class="door" type="button" data-fmt="weekly"><p>Хочется зарабатывать больше за те же усилия и жить спокойнее</p><span class="go">К подходящему формату →</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="kviz">
+  <div class="wrap quiz-grid">
+    <div>
+      <h2>Какой первый шаг подойдёт <em>именно вам</em></h2>
+      <p class="lead">Четыре вопроса. В конце вы увидите подходящий формат и сможете написать Эле с готовым сообщением.</p>
+      <p class="fine">Квиз помогает выбрать формат работы. Это не диагноз и не замена консультации врача или психотерапевта.</p>
+    </div>
+    <div class="qcard" id="qcard" aria-live="polite">
+      <div id="qbody"></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="kak">
+  <div class="wrap">
+    <h2>Маршрут из четырёх шагов</h2>
+    <div class="steps" id="steps">
+      <div class="step"><span class="num" style="background:var(--forest)">1</span><h3>Диагностика</h3><p>Где вы, что мешает, куда хочется</p></div>
+      <div class="step"><span class="num" style="background:var(--forest)">2</span><h3>Маршрут</h3><p>Строим ясный план, шаг за шагом</p></div>
+      <div class="step"><span class="num" style="background:var(--forest)">3</span><h3>Ритм</h3><p>Двигаемся в вашем ритме: без давления, с поддержкой</p></div>
+      <div class="step"><span class="num" style="background:var(--forest)">4</span><h3>Результат</h3><p>Фиксируем результат и сверяемся с целями</p></div>
+    </div>
+    <div class="shifts">
+      <div class="shift">От тревоги к опоре</div>
+      <div class="shift">Больше денег за те же усилия</div>
+      <div class="shift">Больше времени на хобби и свой проект</div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="format">
+  <div class="wrap">
+    <h2>С чего начать</h2>
+    <div class="formats" id="formats">
+      <article class="fcard" data-id="diag">
+        <h3>Мне нужно понять, куда двигаться</h3>
+        <p class="what">Диагностическая сессия 1,5 часа, план через стратегию лёгкости и сопровождение в чате.</p>
+        <p class="for">Для тех, кто хочет изменить состояние и увидеть первые изменения.</p>
+        <p class="price">20 000 ₽</p>
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу диагностическую сессию («Мне нужно понять, куда двигаться»)." href="#">Написать Эле</a>
+      </article>
+      <article class="fcard" data-id="weekly">
+        <h3>Я готова к изменениям</h3>
+        <p class="what">Индивидуальный коучинг на 2 месяца: 4 или 8 сессий, в зависимости от запроса.</p>
+        <p class="for">Если важно построить опору и увидеть изменения в контакте со мной.</p>
+        <p class="price">5 000 ₽ <small>за сессию</small></p>
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу индивидуальный коучинг («Я готова к изменениям»)." href="#">Написать Эле</a>
+      </article>
+      <article class="fcard" data-id="digital">
+        <span class="tag">Скоро</span>
+        <h3>Деньги налегке</h3>
+        <p class="what">Цифровая практика для самостоятельной работы. Материалы в разработке.</p>
+        <p class="for">Для тех, кто хочет разобраться с деньгами в своём темпе.</p>
+        <p class="price">2 900 ₽</p>
+        <a class="btn btn-ghost tg" data-msg="Здравствуйте, Эля! Сообщите мне, когда откроется «Деньги налегке»." href="#">Сообщить об открытии</a>
+      </article>
+    </div>
+    <p class="wait">Групповые программы сейчас не набираются. Следующий набор объявлю в канале. <a class="tg" data-msg="Здравствуйте, Эля! Запишите меня в лист ожидания на групповую программу." href="#">Записаться в лист ожидания</a></p>
+  </div>
+</section>
+
+<section class="dark" id="otzyvy">
+  <div class="wrap">
+    <h2>Что говорят клиентки</h2>
+    <div class="chips" role="group" aria-label="Фильтр отзывов">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">Все</button>
+      <button class="chip" type="button" data-f="career" aria-pressed="false">Работа и деньги</button>
+      <button class="chip" type="button" data-f="state" aria-pressed="false">Состояние</button>
+    </div>
+    <div class="rev" id="rev">
+      <div class="rv" data-t="state"><q>Ты во мне посадила семена радости жизни, и сейчас я очень ощущаю, как они начинают прорастать.</q><footer><b>Клиентка</b>руководитель отдела аналитики в IT-компании</footer></div>
+      <div class="rv" data-t="career"><q>Мы настолько запустили с тобой процесс, озвучили вслух сумму, которая для меня казалась просто нереальной! Это нереально круто! Энергия хлещет через край.</q><footer><b>Клиентка</b>руководитель отдела маркетинга элитной недвижимости<br>3 сессии, запрос: увеличить доход на 60%. Стала директором по маркетингу</footer></div>
+      <div class="rv" data-t="state"><q>Самый важный результат этих четырёх недель: тот самый хороший вторник действительно случился. Изменилось моё состояние, а вслед за ним я начала иначе реагировать на происходящее и по-другому себя вести.</q><footer><b>Клиентка</b>руководитель отдела CRM-маркетинга в банке</footer></div>
+    </div>
+    <p class="src">Тексты из анкеты Эли, с небольшими сокращениями. Имена покажем после согласия клиенток.</p>
+  </div>
+</section>
+
+<section class="light" id="obo-mne">
+  <div class="wrap about-grid">
+    <div>
+      <div class="photo"><img src="assets/IMG_0283.webp" width="854" height="1280" alt="Эля Рыбина смеётся, руки на ноутбуке" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Логика руководителя и <em>глубина психологии</em></h2>
+      <p>Я коуч ICF (ACC) и руководитель в IT. Десять лет в digital, шесть лет управляю командами. Помогаю женщинам, которые многого достигли, но устали жить в напряжении.</p>
+      <blockquote class="quote">Жизнь — это не то, что случается с тобой, а то, что ты выбираешь самостоятельно, во всех сферах.<small>Эля Рыбина</small></blockquote>
+      <div class="videoph"><i aria-hidden="true"></i><p>Здесь будет видео на 20 секунд: «Привет, я Эля». Вертикальное, с телефона.</p></div>
+      <div class="faq">
+        <details><summary>Чем коучинг отличается от терапии?</summary><p>Коучинг и психотерапия — разные инструменты. Я помогаю исследовать привычные способы думать, действовать и чувствовать, находить опору и принимать решения. Я не лечу тревожное расстройство и не гарантирую исцеления. Если понадобится помощь врача или психотерапевта, скажу об этом прямо.</p></details>
+        <details><summary>Как проходит диагностическая сессия?</summary><p>Мы разбираем, где вы сейчас, что мешает и куда хочется. В конце у вас есть первый шаг и понимание, подходит ли вам мой формат.</p></details>
+        <details><summary>Сколько длится работа?</summary><p>Индивидуальный коучинг идёт 2 месяца: 4 или 8 сессий, в зависимости от запроса. Одна сессия — час.</p></details>
+        <details><summary>Как записаться?</summary><p>Нажмите «Написать Эле». Откроется Telegram с готовым сообщением, останется отправить.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="kanal">
+  <div class="wrap">
+    <h2>Читайте в канале «Лёгкая женская доля»</h2>
+    <p class="lead" style="margin-top:20px">Наблюдения, смыслы и истории. Если вы пока не уверены, можно начать отсюда.</p>
+    <div class="posts">
+      <a class="post" href="https://t.me/elya_jellyfish/6086" target="_blank" rel="noopener"><time datetime="2026-11-11">11 ноября</time><p>Про деньги лучше говорить с людьми, у которых есть опыт их зарабатывания, удержания и преумножения на длинной дистанции.</p><span>Читать в канале →</span></a>
+      <a class="post" href="https://t.me/elya_jellyfish/6085" target="_blank" rel="noopener"><time datetime="2026-11-10">10 ноября</time><p>Мои принципы управления командой.</p><span>Читать в канале →</span></a>
+      <a class="post" href="https://t.me/elya_jellyfish/6084" target="_blank" rel="noopener"><time datetime="2026-11-08">8 ноября</time><p>Системные действия для устойчивой лёгкости.</p><span>Читать в канале →</span></a>
+    </div>
+    <p style="margin-top:32px"><a class="btn btn-line" href="https://t.me/elya_jellyfish" target="_blank" rel="noopener">Подписаться на канал</a></p>
+  </div>
+</section>
+
+<section class="dark final">
+  <div class="wrap final-grid">
+    <div>
+      <h2>Напишите Эле, и начнём с диагностики</h2>
+      <p class="lead" style="margin:22px 0 32px">Кнопка откроет Telegram с готовым сообщением.</p>
+      <div class="cta-row">
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу записаться на диагностическую сессию." href="#">Написать Эле в Telegram</a>
+        <a class="btn btn-ghost" href="#kviz">Сначала квиз</a>
+      </div>
+    </div>
+    <div class="photo"><img src="assets/IMG_0282.webp" width="854" height="1280" alt="Эля Рыбина смотрит вверх, ноутбук на коленях" loading="lazy"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <span>© 2026 Эльвира Рыбина</span>
+  <span><a href="https://ellyrybina.tilda.ws/policy">Политика конфиденциальности</a> <i class="sep">·</i> <a href="https://ellyrybina.tilda.ws/offer">Договор‑оферта</a></span>
+  <span><a class="tg" data-msg="Здравствуйте, Эля!" href="#">Telegram</a> <i class="sep">·</i> почта hello@ появится после подключения домена</span>
+</div></footer>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="bg" id="dBg"></div>
+  <div class="panel">
+    <button class="x" type="button" id="dClose">Закрыть</button>
+    <h2 id="dTitle">Что нужно от тебя</h2>
+    <p style="color:var(--mut-light);margin-top:10px">Чтобы макет стал сайтом. Впиши ответ рядом с вопросом.</p>
+    <ul id="needList"><li><label for="n1">Согласие трёх клиенток показать имя и должность (фото по желанию)</label><input type="text" id="n1" placeholder="Что они ответили"></li><li><label for="n2">Видео на 20 секунд «Привет, я Эля»: вертикальное, файлом</label><input type="text" id="n2" placeholder="Когда пришлёшь"></li><li><label for="n3">Диагностическая сессия за 20 000 ₽ остаётся отдельным форматом?</label><input type="text" id="n3" placeholder="Да или нет"></li><li><label for="n4">«Деньги налегке» и «Практика на 30 дней» — один продукт?</label><input type="text" id="n4" placeholder="Да или нет"></li><li><label for="n5">Цена коучинга: оставляем «5 000 ₽ за сессию» или пишем цену за 4 и за 8 сессий?</label><input type="text" id="n5" placeholder="Как пишем"></li><li><label for="n6">Номер в реестре ICF (по желанию)</label><input type="text" id="n6" placeholder="Номер или «нет»"></li></ul>
+    <button type="button" class="btn btn-lime" id="copyAns" style="margin-top:8px;width:100%;justify-content:center">Скопировать ответы</button>
+    <p id="copyMsg" style="margin-top:10px;font-size:15px;color:var(--mut-light)"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var TG='https://t.me/ellyrybina?text=';
+  function tg(msg){return TG+encodeURIComponent(msg)}
+  document.querySelectorAll('a.tg').forEach(function(a){a.href=tg(a.dataset.msg);a.target='_blank';a.rel='noopener'});
+
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mmenu');
+  mb.addEventListener('click',function(){var o=mm.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+  mm.addEventListener('click',function(e){if(e.target.tagName==='A'){mm.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
+
+  var dr=document.getElementById('drawer'),nb=document.getElementById('needBtn');
+  function ndone(){var all=document.querySelectorAll('#needList input'),left=0;all.forEach(function(i){if(!i.value.trim())left++});document.getElementById('needN').textContent=left}
+  nb.addEventListener('click',function(){dr.classList.add('open')});
+  document.getElementById('dClose').addEventListener('click',function(){dr.classList.remove('open')});
+  document.getElementById('dBg').addEventListener('click',function(){dr.classList.remove('open')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')dr.classList.remove('open')});
+  document.getElementById('needList').addEventListener('input',ndone);
+  document.getElementById('copyAns').addEventListener('click',function(){
+    var out=[];document.querySelectorAll('#needList li').forEach(function(li,k){var q=li.querySelector('label').textContent,a=li.querySelector('input').value.trim();out.push((k+1)+'. '+q+'\nОтвет: '+a)});
+    var txt=out.join('\n\n'),m=document.getElementById('copyMsg');
+    function ok(){m.textContent='Скопировано. Вставь в чат с Борисом.'}
+    function fb(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){m.textContent='Не получилось скопировать. Выдели и скопируй вручную.'}document.body.removeChild(ta)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fb)}else{fb()}
+  });
+
+
+  document.querySelectorAll('.door').forEach(function(d){d.addEventListener('click',function(){highlight(d.dataset.fmt);var c=document.querySelector('.fcard.hl');(c||document.getElementById('format')).scrollIntoView({behavior:'smooth',block:'center'})})});
+  function highlight(id){document.querySelectorAll('.fcard').forEach(function(c){c.classList.toggle('hl',c.dataset.id===id)})}
+
+  var chips=document.querySelectorAll('.chip');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+    document.querySelectorAll('.rv').forEach(function(r){r.classList.toggle('off',c.dataset.f!=='all'&&r.dataset.t!==c.dataset.f)});
+  })});
+
+  var Q=[
+   {q:'Как вы чаще всего просыпаетесь по будням?',o:[
+     ['Усталость, и в голове уже список задач','O'],
+     ['Нормально, но смысла в этом всё меньше','R'],
+     ['Тревога, что не справлюсь','A'],
+     ['С интересом, но хочется большего','R']]},
+   {q:'Что сейчас забирает больше всего сил?',o:[
+     ['Работа без пауз','O'],
+     ['Решение: менять сферу или нет','R'],
+     ['Шум в голове и тревога о будущем','A'],
+     ['Ощущение, что я трачу жизнь не на то','R']]},
+   {q:'Какое слово ближе всего?',o:[
+     ['Износ','O'],['Развилка','R'],['Шум','A'],['Застой','R']]},
+   {q:'Что вам нужно в первую очередь?',o:[
+     ['Выдохнуть и опереться на кого-то','O'],
+     ['Ясность и план','R'],
+     ['Структура вместо хаоса в голове','A'],
+     ['Поддержка рядом, пока я меняюсь','O']]}
+  ];
+  var RES={
+   O:{t:'Вам нужна опора',p:'Похоже, силы уходят быстрее, чем возвращаются. Помогает ритм: регулярные сессии и человек рядом, пока вы выстраиваете систему, в которой легче жить.',f:'Индивидуальный коучинг',s:'4 или 8 сессий на 2 месяца',id:'weekly'},
+   R:{t:'Вам нужна ясность',p:'Похоже, вы стоите на развилке. Помогает диагностика: где вы, что мешает, куда хочется, и план на ближайшие шаги.',f:'Диагностическая сессия и план',s:'1,5 часа и сопровождение в чате',id:'diag'},
+   A:{t:'Вам нужна структура',p:'Похоже, шум в голове мешает увидеть, что реально происходит. Помогает диагностика: из хаоса в голове получается структура и план.',f:'Диагностическая сессия и план',s:'1,5 часа и сопровождение в чате',id:'diag'}
+  };
+  var body=document.getElementById('qbody'),i=0,sc={O:0,R:0,A:0};
+  function step(){
+    var p=(i+1)/Q.length,h='<div class="qprog"><i style="transform:scaleX('+p+')"></i></div><p class="qstep">Вопрос '+(i+1)+' из '+Q.length+'</p><h3>'+Q[i].q+'</h3><div class="opts">';
+    Q[i].o.forEach(function(o,k){h+='<button type="button" class="opt" data-k="'+k+'">'+o[0]+'</button>'});
+    h+='</div>'+(i>0?'<button type="button" class="qback" id="qb">Назад</button>':'');
+    body.innerHTML=h;
+    body.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){var t=Q[i].o[+b.dataset.k][1];sc[t]++;Q[i].picked=t;i++;i<Q.length?step():done()})});
+    var qb=document.getElementById('qb');if(qb)qb.addEventListener('click',function(){i--;sc[Q[i].picked]--;step()});
+  }
+  function done(){
+    var best='R',m=-1;['O','R','A'].forEach(function(k){if(sc[k]>m){m=sc[k];best=k}});
+    var r=RES[best];
+    var msg='Здравствуйте, Эля! Квиз на сайте пройден. Результат: '+r.t+'. Хочу обсудить: '+r.f+'.';
+    body.innerHTML='<div class="res"><div class="qprog"><i style="transform:scaleX(1)"></i></div><p class="qstep">Результат</p><h3>'+r.t+'</h3><p>'+r.p+'</p><div class="rec"><span class="qstep">С чего начать</span><b>'+r.f+'<br><span style="font-family:var(--sans);font-size:16px;color:var(--mut-dark);font-weight:400">'+r.s+'</span></b><div class="cta-row"><a class="btn btn-lime" target="_blank" rel="noopener" href="'+tg(msg)+'">Написать Эле с результатом</a><button type="button" class="qback" id="again">Пройти заново</button></div></div></div>';
+    highlight(r.id);
+    document.getElementById('again').addEventListener('click',function(){i=0;sc={O:0,R:0,A:0};step()});
+  }
+  step();
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  document.querySelectorAll('.doors .door,.formats .fcard,.posts .post,.shift').forEach(function(e){e.classList.add('rise');io.observe(e)});
+  io.observe(document.getElementById('steps'));
+})();
+</script>
+</body>
+</html>

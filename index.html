@@ -325,13 +325,18 @@ footer.site{background:var(--forest)}
 .steps+.shifts{margin-top:72px}
 @media (max-width:620px){.chips{gap:8px}.chip{padding:8px 12px;font-size:15px}}
 
+
+/* QA 2026-11-20: tap targets, mobile credentials */
+.chip{min-height:44px}
+.wait a{position:relative}.wait a::after{content:'';position:absolute;inset:-12px -4px}
+@media (max-width:620px){footer.site .wrap{flex-direction:column;align-items:flex-start;gap:10px}.facts{display:grid!important;grid-template-columns:1fr;margin-top:28px}.facts div,.facts div+div{padding:12px 0;font-size:14px;border-left:0;border-top:1px solid var(--line-d)}.facts b{font-size:21px;margin-bottom:2px}}
 </style>
 </head>
 <body>
 
 <div class="ribbon"><div class="wrap">
   <span>Макет 2 для Эли. Тёплые светлые тона, тексты по анкете. Порядок блоков черновой, всё кликается.</span>
-  <button type="button" id="needBtn">Что нужно от тебя (<span id="needN">6</span>)</button>
+  <button type="button" id="needBtn">Что нужно от тебя (<span id="needN">4</span>)</button>
 </div></div>
 
 <header class="top"><div class="wrap">
@@ -365,8 +370,8 @@ footer.site{background:var(--forest)}
       </div>
     </div>
     <div class="facts">
-      <div><b>10 лет в digital и IT</b>развиваю технологические бизнесы, отвечаю за продажи и P&amp;L</div>
-      <div><b>6 лет управляю командами</b>знаю, как выглядит нагрузка изнутри</div>
+      <div><b>10&nbsp;лет в digital и IT</b>развиваю технологические бизнесы, отвечаю за продажи и P&amp;L</div>
+      <div><b>6&nbsp;лет управляю командами</b>знаю, как выглядит нагрузка изнутри</div>
       <div><b>Коуч ICF (ACC)</b>работаю с женщинами-руководителями, предпринимателями и специалистами</div>
     </div>
   </div>
@@ -375,7 +380,7 @@ footer.site{background:var(--forest)}
 <section class="dark" id="o-vas">
   <div class="wrap">
     <h2>Где вы <em>сейчас?</em></h2>
-    <p class="lead" style="margin-top:20px">Выберите фразу, которая ближе. Мы подсветим формат, с которого удобнее начать.</p>
+    <p class="lead" style="margin-top:20px">Выберите фразу, которая ближе. Я подсвечу формат, с которого удобнее начать.</p>
     <div class="doors">
       <button class="door" type="button" data-fmt="diag"><p>Вы многого достигли, но счастья от этого не прибавилось</p><span class="go">К подходящему формату →</span></button>
       <button class="door" type="button" data-fmt="weekly"><p>Работаете на износ и хочется перестать пахать</p><span class="go">К подходящему формату →</span></button>
@@ -389,7 +394,7 @@ footer.site{background:var(--forest)}
   <div class="wrap quiz-grid">
     <div>
       <h2>Какой первый шаг подойдёт <em>именно вам</em></h2>
-      <p class="lead">Четыре вопроса. В конце вы увидите подходящий формат и сможете написать Эле с готовым сообщением.</p>
+      <p class="lead">Четыре вопроса. В конце вы увидите подходящий формат и сможете написать мне с готовым сообщением.</p>
       <p class="fine">Квиз помогает выбрать формат работы. Это не диагноз и не замена консультации врача или психотерапевта.</p>
     </div>
     <div class="qcard" id="qcard" aria-live="polite">
@@ -407,6 +412,7 @@ footer.site{background:var(--forest)}
       <div class="step"><span class="num" style="background:var(--forest)">3</span><h3>Ритм</h3><p>Двигаемся в вашем ритме: без давления, с поддержкой</p></div>
       <div class="step"><span class="num" style="background:var(--forest)">4</span><h3>Результат</h3><p>Фиксируем результат и сверяемся с целями</p></div>
     </div>
+    <p class="kicker" style="margin:56px 0 -36px">Что меняется</p>
     <div class="shifts">
       <div class="shift">От тревоги к опоре</div>
       <div class="shift">Больше денег за те же усилия</div>
@@ -420,29 +426,29 @@ footer.site{background:var(--forest)}
     <h2>С чего начать</h2>
     <div class="formats" id="formats">
       <article class="fcard" data-id="diag">
-        <h3>Мне нужно понять, куда двигаться</h3>
-        <p class="what">Диагностическая сессия 1,5 часа, план через стратегию лёгкости и сопровождение в чате.</p>
-        <p class="for">Для тех, кто хочет изменить состояние и увидеть первые изменения.</p>
-        <p class="price">20 000 ₽</p>
-        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу диагностическую сессию («Мне нужно понять, куда двигаться»)." href="#">Написать Эле</a>
+        <h3>«Мне нужно понять, куда двигаться»</h3>
+        <p class="what"><b>Стратегическая сессия.</b> Любой запрос, в том числе карьерный.</p>
+        <p class="for">Когда нужен план и взгляд со стороны, а двигаться вы готовы самостоятельно.</p>
+        <p class="price">9&nbsp;000&nbsp;₽</p>
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу стратегическую сессию («Мне нужно понять, куда двигаться»)." href="#">Написать мне</a>
       </article>
       <article class="fcard" data-id="weekly">
-        <h3>Я готова к изменениям</h3>
-        <p class="what">Индивидуальный коучинг на 2 месяца: 4 или 8 сессий, в зависимости от запроса.</p>
-        <p class="for">Если важно построить опору и увидеть изменения в контакте со мной.</p>
-        <p class="price">5 000 ₽ <small>за сессию</small></p>
-        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу индивидуальный коучинг («Я готова к изменениям»)." href="#">Написать Эле</a>
+        <h3>«Я готова к изменениям»</h3>
+        <p class="what"><b>Индивидуальный коучинг.</b> 2&nbsp;месяца, 4 или 8&nbsp;сессий в зависимости от запроса.</p>
+        <p class="for">Если важно построить опору и увидеть изменения в контакте со мной. Возможна оплата по факту проведённой сессии.</p>
+        <p class="price">20&nbsp;000&nbsp;₽ <small>за 4&nbsp;сессии</small><br>40&nbsp;000&nbsp;₽ <small>за 8&nbsp;сессий</small></p>
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу индивидуальный коучинг («Я готова к изменениям»)." href="#">Написать мне</a>
       </article>
       <article class="fcard" data-id="digital">
         <span class="tag">Скоро</span>
         <h3>Деньги налегке</h3>
-        <p class="what">Цифровая практика для самостоятельной работы. Материалы в разработке.</p>
+        <p class="what"><b>Практика на 30&nbsp;дней.</b> Вебинар, рабочая тетрадь и аудиопрактика. Вебинар разбирает денежные ограничения коучинговым методом, аудиопрактика помогает заменить ограничивающее убеждение.</p>
         <p class="for">Для тех, кто хочет разобраться с деньгами в своём темпе.</p>
-        <p class="price">2 900 ₽</p>
+        <p class="price">2&nbsp;900&nbsp;₽</p>
         <a class="btn btn-ghost tg" data-msg="Здравствуйте, Эля! Сообщите мне, когда откроется «Деньги налегке»." href="#">Сообщить об открытии</a>
       </article>
     </div>
-    <p class="wait">Групповые программы сейчас не набираются. Следующий набор объявлю в канале. <a class="tg" data-msg="Здравствуйте, Эля! Запишите меня в лист ожидания на групповую программу." href="#">Записаться в лист ожидания</a></p>
+    <p class="wait">Групповые программы сейчас не набираются. Следующий набор я объявлю в канале. <a class="tg" data-msg="Здравствуйте, Эля! Запишите меня в лист ожидания на групповую программу." href="#">Записаться в лист ожидания</a></p>
   </div>
 </section>
 
@@ -475,8 +481,8 @@ footer.site{background:var(--forest)}
       <div class="videoph"><i aria-hidden="true"></i><p>Здесь будет видео на 20 секунд: «Привет, я Эля». Вертикальное, с телефона.</p></div>
       <div class="faq">
         <details><summary>Чем коучинг отличается от терапии?</summary><p>Коучинг и психотерапия — разные инструменты. Я помогаю исследовать привычные способы думать, действовать и чувствовать, находить опору и принимать решения. Я не лечу тревожное расстройство и не гарантирую исцеления. Если понадобится помощь врача или психотерапевта, скажу об этом прямо.</p></details>
-        <details><summary>Как проходит диагностическая сессия?</summary><p>Мы разбираем, где вы сейчас, что мешает и куда хочется. В конце у вас есть первый шаг и понимание, подходит ли вам мой формат.</p></details>
-        <details><summary>Сколько длится работа?</summary><p>Индивидуальный коучинг идёт 2 месяца: 4 или 8 сессий, в зависимости от запроса. Одна сессия — час.</p></details>
+        <details><summary>Как проходит стратегическая сессия?</summary><p>Вы приходите с любым запросом, например карьерным. Мы разбираем его, и вы получаете план и взгляд со стороны. Формат подходит, если вы готовы двигаться самостоятельно.</p></details>
+        <details><summary>Сколько длится работа?</summary><p>Индивидуальный коучинг идёт 2&nbsp;месяца: 4 или 8&nbsp;сессий, в зависимости от запроса. Одна сессия — час.</p></details>
         <details><summary>Как записаться?</summary><p>Нажмите «Написать Эле». Откроется Telegram с готовым сообщением, останется отправить.</p></details>
       </div>
     </div>
@@ -499,10 +505,10 @@ footer.site{background:var(--forest)}
 <section class="dark final">
   <div class="wrap final-grid">
     <div>
-      <h2>Напишите Эле, и начнём с диагностики</h2>
+      <h2>Напишите мне, и я помогу выбрать формат</h2>
       <p class="lead" style="margin:22px 0 32px">Кнопка откроет Telegram с готовым сообщением.</p>
       <div class="cta-row">
-        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу записаться на диагностическую сессию." href="#">Написать Эле в Telegram</a>
+        <a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу выбрать формат работы." href="#">Написать мне в Telegram</a>
         <a class="btn btn-ghost" href="#kviz">Сначала квиз</a>
       </div>
     </div>
@@ -523,7 +529,7 @@ footer.site{background:var(--forest)}
     <button class="x" type="button" id="dClose">Закрыть</button>
     <h2 id="dTitle">Что нужно от тебя</h2>
     <p style="color:var(--mut-light);margin-top:10px">Чтобы макет стал сайтом. Впиши ответ рядом с вопросом.</p>
-    <ul id="needList"><li><label for="n1">Согласие трёх клиенток показать имя и должность (фото по желанию)</label><input type="text" id="n1" placeholder="Что они ответили"></li><li><label for="n2">Видео на 20 секунд «Привет, я Эля»: вертикальное, файлом</label><input type="text" id="n2" placeholder="Когда пришлёшь"></li><li><label for="n3">Диагностическая сессия за 20 000 ₽ остаётся отдельным форматом?</label><input type="text" id="n3" placeholder="Да или нет"></li><li><label for="n4">«Деньги налегке» и «Практика на 30 дней» — один продукт?</label><input type="text" id="n4" placeholder="Да или нет"></li><li><label for="n5">Цена коучинга: оставляем «5 000 ₽ за сессию» или пишем цену за 4 и за 8 сессий?</label><input type="text" id="n5" placeholder="Как пишем"></li><li><label for="n6">Номер в реестре ICF (по желанию)</label><input type="text" id="n6" placeholder="Номер или «нет»"></li></ul>
+    <ul id="needList"><li><label for="n1">Макет подходит? Если нет, что поправить</label><input type="text" id="n1" placeholder="Да или что поправить"></li><li><label for="n2">Видео на 20 секунд «Привет, я Эля»: первый файл не открылся, пришли заново файлом</label><input type="text" id="n2" placeholder="Когда пришлёшь"></li><li><label for="n3">Как подписать отзывы: имя и должность или только имя</label><input type="text" id="n3" placeholder="Как подписать"></li><li><label for="n4">Записи для домена в Reg.ru внесены</label><input type="text" id="n4" placeholder="Да или что не получилось"></li></ul>
     <button type="button" class="btn btn-lime" id="copyAns" style="margin-top:8px;width:100%;justify-content:center">Скопировать ответы</button>
     <p id="copyMsg" style="margin-top:10px;font-size:15px;color:var(--mut-light)"></p>
   </div>
@@ -547,14 +553,6 @@ footer.site{background:var(--forest)}
   document.getElementById('dBg').addEventListener('click',function(){dr.classList.remove('open')});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')dr.classList.remove('open')});
   document.getElementById('needList').addEventListener('input',ndone);
-  document.getElementById('copyAns').addEventListener('click',function(){
-    var out=[];document.querySelectorAll('#needList li').forEach(function(li,k){var q=li.querySelector('label').textContent,a=li.querySelector('input').value.trim();out.push((k+1)+'. '+q+'\nОтвет: '+a)});
-    var txt=out.join('\n\n'),m=document.getElementById('copyMsg');
-    function ok(){m.textContent='Скопировано. Вставь в чат с Борисом.'}
-    function fb(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){m.textContent='Не получилось скопировать. Выдели и скопируй вручную.'}document.body.removeChild(ta)}
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fb)}else{fb()}
-  });
-
 
   document.querySelectorAll('.door').forEach(function(d){d.addEventListener('click',function(){highlight(d.dataset.fmt);var c=document.querySelector('.fcard.hl');(c||document.getElementById('format')).scrollIntoView({behavior:'smooth',block:'center'})})});
   function highlight(id){document.querySelectorAll('.fcard').forEach(function(c){c.classList.toggle('hl',c.dataset.id===id)})}
@@ -567,9 +565,9 @@ footer.site{background:var(--forest)}
 
   var Q=[
    {q:'Как вы чаще всего просыпаетесь по будням?',o:[
-     ['Усталость, и в голове уже список задач','O'],
+     ['С усталостью, и в голове уже список задач','O'],
      ['Нормально, но смысла в этом всё меньше','R'],
-     ['Тревога, что не справлюсь','A'],
+     ['С тревогой, что не справлюсь','A'],
      ['С интересом, но хочется большего','R']]},
    {q:'Что сейчас забирает больше всего сил?',o:[
      ['Работа без пауз','O'],
@@ -585,9 +583,9 @@ footer.site{background:var(--forest)}
      ['Поддержка рядом, пока я меняюсь','O']]}
   ];
   var RES={
-   O:{t:'Вам нужна опора',p:'Похоже, силы уходят быстрее, чем возвращаются. Помогает ритм: регулярные сессии и человек рядом, пока вы выстраиваете систему, в которой легче жить.',f:'Индивидуальный коучинг',s:'4 или 8 сессий на 2 месяца',id:'weekly'},
-   R:{t:'Вам нужна ясность',p:'Похоже, вы стоите на развилке. Помогает диагностика: где вы, что мешает, куда хочется, и план на ближайшие шаги.',f:'Диагностическая сессия и план',s:'1,5 часа и сопровождение в чате',id:'diag'},
-   A:{t:'Вам нужна структура',p:'Похоже, шум в голове мешает увидеть, что реально происходит. Помогает диагностика: из хаоса в голове получается структура и план.',f:'Диагностическая сессия и план',s:'1,5 часа и сопровождение в чате',id:'diag'}
+   O:{t:'Вам нужна опора',p:'Похоже, силы уходят быстрее, чем возвращаются. Помогает ритм: регулярные сессии и человек рядом, пока вы выстраиваете систему, в которой легче жить.',f:'Индивидуальный коучинг',s:'4 сессии за 20&nbsp;000&nbsp;₽ или 8 за 40&nbsp;000&nbsp;₽',id:'weekly'},
+   R:{t:'Вам нужна ясность',p:'Похоже, вы стоите на развилке. Помогает стратегическая сессия: взгляд со стороны и план на ближайшие шаги.',f:'Стратегическая сессия',s:'Любой запрос, 9&nbsp;000&nbsp;₽',id:'diag'},
+   A:{t:'Вам нужна структура',p:'Похоже, шум в голове мешает увидеть, что реально происходит. Помогает стратегическая сессия: из хаоса в голове получается структура и план.',f:'Стратегическая сессия',s:'Любой запрос, 9&nbsp;000&nbsp;₽',id:'diag'}
   };
   var body=document.getElementById('qbody'),i=0,sc={O:0,R:0,A:0};
   function step(){
@@ -602,11 +600,19 @@ footer.site{background:var(--forest)}
     var best='R',m=-1;['O','R','A'].forEach(function(k){if(sc[k]>m){m=sc[k];best=k}});
     var r=RES[best];
     var msg='Здравствуйте, Эля! Квиз на сайте пройден. Результат: '+r.t+'. Хочу обсудить: '+r.f+'.';
-    body.innerHTML='<div class="res"><div class="qprog"><i style="transform:scaleX(1)"></i></div><p class="qstep">Результат</p><h3>'+r.t+'</h3><p>'+r.p+'</p><div class="rec"><span class="qstep">С чего начать</span><b>'+r.f+'<br><span style="font-family:var(--sans);font-size:16px;color:var(--mut-dark);font-weight:400">'+r.s+'</span></b><div class="cta-row"><a class="btn btn-lime" target="_blank" rel="noopener" href="'+tg(msg)+'">Написать Эле с результатом</a><button type="button" class="qback" id="again">Пройти заново</button></div></div></div>';
+    body.innerHTML='<div class="res"><div class="qprog"><i style="transform:scaleX(1)"></i></div><p class="qstep">Результат</p><h3>'+r.t+'</h3><p>'+r.p+'</p><div class="rec"><span class="qstep">С чего начать</span><b>'+r.f+'<br><span style="font-family:var(--sans);font-size:16px;color:var(--mut-dark);font-weight:400">'+r.s+'</span></b><div class="cta-row"><a class="btn btn-lime" target="_blank" rel="noopener" href="'+tg(msg)+'">Написать мне с результатом</a><button type="button" class="qback" id="again">Пройти заново</button></div></div></div>';
     highlight(r.id);
     document.getElementById('again').addEventListener('click',function(){i=0;sc={O:0,R:0,A:0};step()});
   }
   step();
+
+  document.getElementById('copyAns').addEventListener('click',function(){
+    var out=[];document.querySelectorAll('#needList li').forEach(function(li,k){var q=li.querySelector('label').textContent,a=li.querySelector('input').value.trim();out.push((k+1)+'. '+q+'\nОтвет: '+a)});
+    var txt=out.join('\n\n'),m=document.getElementById('copyMsg');
+    function ok(){m.textContent='Скопировано. Вставь в чат с Борисом.'}
+    function fb(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){m.textContent='Не получилось скопировать. Выдели и скопируй вручную.'}document.body.removeChild(ta)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fb)}else{fb()}
+  });
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.05});
   document.querySelectorAll('.doors .door,.formats .fcard,.posts .post,.shift').forEach(function(e){e.classList.add('rise');io.observe(e)});

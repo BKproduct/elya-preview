@@ -315,7 +315,7 @@ footer.site{background:var(--forest)}
 .wait a{color:var(--ink)}
 .facts b{font-size:28px}
 @media (max-width:980px){.formats{grid-template-columns:1fr}.about-grid>div:first-child .photo{position:static}}
-.about-grid>div:first-child .photo{position:sticky;top:96px}
+.about-grid>div:first-child .photo{position:static}
 .fcard .price{margin-top:auto;font-variant-numeric:tabular-nums}
 .fcard .btn{margin-top:6px}
 .doors{align-items:stretch}
@@ -330,6 +330,8 @@ footer.site{background:var(--forest)}
 .chip{min-height:44px}
 .wait a{position:relative}.wait a::after{content:'';position:absolute;inset:-12px -4px}
 @media (max-width:620px){footer.site .wrap{flex-direction:column;align-items:flex-start;gap:10px}.facts{display:grid!important;grid-template-columns:1fr;margin-top:28px}.facts div,.facts div+div{padding:12px 0;font-size:14px;border-left:0;border-top:1px solid var(--line-d)}.facts b{font-size:21px;margin-bottom:2px}}
+.about-grid{row-gap:clamp(28px,4vw,56px)}.about-grid .videoph{margin-top:0}.a-cta{margin-top:28px}@media (max-width:620px){.about-grid .vid{margin-inline:auto}}
+.about-grid .vid{max-width:380px}.vid video{display:block;width:100%;height:auto;aspect-ratio:720/1282;border-radius:10px;background:#2B211C}@media (max-width:620px){.about-grid .vid{max-width:340px}}
 </style>
 </head>
 <body>
@@ -372,7 +374,7 @@ footer.site{background:var(--forest)}
     <div class="facts">
       <div><b>10&nbsp;лет в digital и IT</b>развиваю технологические бизнесы, отвечаю за продажи и P&amp;L</div>
       <div><b>6&nbsp;лет управляю командами</b>знаю, как выглядит нагрузка изнутри</div>
-      <div><b>Коуч ICF (ACC)</b>работаю с женщинами-руководителями, предпринимателями и специалистами</div>
+      <div><b>Коуч ICF (ACC)</b>работаю с руководителями, предпринимателями и специалистами</div>
     </div>
   </div>
 </section>
@@ -461,7 +463,7 @@ footer.site{background:var(--forest)}
       <button class="chip" type="button" data-f="state" aria-pressed="false">Состояние</button>
     </div>
     <div class="rev" id="rev">
-      <div class="rv" data-t="state"><q>Ты во мне посадила семена радости жизни, и сейчас я очень ощущаю, как они начинают прорастать.</q><footer><b>Клиентка</b>руководитель отдела аналитики в IT-компании</footer></div>
+      <div class="rv" data-t="state"><q>Ты во мне посадила семена радости жизни, и сейчас я очень ощущаю, как они начинают прорастать.</q><footer><b>Клиентка</b>руководитель отдела аналитики в&nbsp;IT&#8209;компании</footer></div>
       <div class="rv" data-t="career"><q>Мы настолько запустили с тобой процесс, озвучили вслух сумму, которая для меня казалась просто нереальной! Это нереально круто! Энергия хлещет через край.</q><footer><b>Клиентка</b>руководитель отдела маркетинга элитной недвижимости<br>3 сессии, запрос: увеличить доход на 60%. Стала директором по маркетингу</footer></div>
       <div class="rv" data-t="state"><q>Самый важный результат этих четырёх недель: тот самый хороший вторник действительно случился. Изменилось моё состояние, а вслед за ним я начала иначе реагировать на происходящее и по-другому себя вести.</q><footer><b>Клиентка</b>руководитель отдела CRM-маркетинга в банке</footer></div>
     </div>
@@ -471,20 +473,23 @@ footer.site{background:var(--forest)}
 
 <section class="light" id="obo-mne">
   <div class="wrap about-grid">
-    <div>
-      <div class="photo"><img src="assets/IMG_0283.webp" width="854" height="1280" alt="Эля Рыбина смеётся, руки на ноутбуке" loading="lazy"></div>
-    </div>
-    <div>
+    <div class="a-photo"><div class="photo"><img src="assets/IMG_0283.webp" width="854" height="1280" alt="Эля Рыбина смеётся, руки на ноутбуке" loading="lazy"></div></div>
+    <div class="a-text">
       <h2>Логика руководителя и <em>глубина психологии</em></h2>
-      <p>Я коуч ICF (ACC) и руководитель в IT. Десять лет в digital, шесть лет управляю командами. Помогаю женщинам, которые многого достигли, но устали жить в напряжении.</p>
+      <p>Я коуч ICF (ACC) и руководитель в IT. Десять лет в digital, шесть лет управляю командами. Помогаю людям, которые многого достигли, но устали жить в напряжении.</p>
       <blockquote class="quote">Жизнь — это не то, что случается с тобой, а то, что ты выбираешь самостоятельно, во всех сферах.<small>Эля Рыбина</small></blockquote>
-      <div class="videoph"><i aria-hidden="true"></i><p>Здесь будет видео на 20 секунд: «Привет, я Эля». Вертикальное, с телефона.</p></div>
+    </div>
+    <div class="a-vid">
+      <div class="vid"><video controls playsinline preload="metadata" poster="assets/hello-poster.jpg" aria-label="Эля Рыбина: короткое приветствие"><source src="assets/hello.mp4" type="video/mp4"><track kind="captions" srclang="ru" label="Русский" src="assets/hello.vtt"></video></div>
+      </div>
+    <div class="a-faq">
       <div class="faq">
         <details><summary>Чем коучинг отличается от терапии?</summary><p>Коучинг и психотерапия — разные инструменты. Я помогаю исследовать привычные способы думать, действовать и чувствовать, находить опору и принимать решения. Я не лечу тревожное расстройство и не гарантирую исцеления. Если понадобится помощь врача или психотерапевта, скажу об этом прямо.</p></details>
         <details><summary>Как проходит стратегическая сессия?</summary><p>Вы приходите с любым запросом, например карьерным. Мы разбираем его, и вы получаете план и взгляд со стороны. Формат подходит, если вы готовы двигаться самостоятельно.</p></details>
         <details><summary>Сколько длится работа?</summary><p>Индивидуальный коучинг идёт 2&nbsp;месяца: 4 или 8&nbsp;сессий, в зависимости от запроса. Одна сессия — час.</p></details>
-        <details><summary>Как записаться?</summary><p>Нажмите «Написать Эле». Откроется Telegram с готовым сообщением, останется отправить.</p></details>
+        <details><summary>Как записаться?</summary><p>Нажмите «Написать мне». Откроется Telegram с готовым сообщением, останется отправить.</p></details>
       </div>
+      <p class="a-cta"><a class="btn btn-lime tg" data-msg="Здравствуйте, Эля! Хочу выбрать формат работы." href="#">Написать мне в Telegram</a></p>
     </div>
   </div>
 </section>
@@ -583,7 +588,7 @@ footer.site{background:var(--forest)}
      ['Поддержка рядом, пока я меняюсь','O']]}
   ];
   var RES={
-   O:{t:'Вам нужна опора',p:'Похоже, силы уходят быстрее, чем возвращаются. Помогает ритм: регулярные сессии и человек рядом, пока вы выстраиваете систему, в которой легче жить.',f:'Индивидуальный коучинг',s:'4 сессии за 20&nbsp;000&nbsp;₽ или 8 за 40&nbsp;000&nbsp;₽',id:'weekly'},
+   O:{t:'Вам нужна опора',p:'Похоже, силы уходят быстрее, чем возвращаются. Помогает ритм: регулярные сессии и человек рядом, пока вы выстраиваете систему, в которой легче жить.',f:'Индивидуальный коучинг',s:'4&nbsp;сессии за&nbsp;20&nbsp;000&nbsp;₽ или&nbsp;8&nbsp;за&nbsp;40&nbsp;000&nbsp;₽',id:'weekly'},
    R:{t:'Вам нужна ясность',p:'Похоже, вы стоите на развилке. Помогает стратегическая сессия: взгляд со стороны и план на ближайшие шаги.',f:'Стратегическая сессия',s:'Любой запрос, 9&nbsp;000&nbsp;₽',id:'diag'},
    A:{t:'Вам нужна структура',p:'Похоже, шум в голове мешает увидеть, что реально происходит. Помогает стратегическая сессия: из хаоса в голове получается структура и план.',f:'Стратегическая сессия',s:'Любой запрос, 9&nbsp;000&nbsp;₽',id:'diag'}
   };

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<!-- The page frame inherits this policy: scripts inside an edited page never run, and data goes only to GitHub. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://ellyrybina.ru; img-src 'self' https://ellyrybina.ru data: blob:; font-src https://ellyrybina.ru data:; media-src https://ellyrybina.ru; connect-src https://api.github.com; base-uri https://ellyrybina.ru; form-action 'none'; frame-src 'self'">
+<title>Тестовая админка</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="demobar"><span>Тест: настоящий сайт не меняется.</span><button id="reset" type="button">Начать тест заново</button></div>
+<section id="login" hidden>
+  <h1>Тестовая админка</h1>
+  <p>Это копия вашего сайта: правки здесь настоящий сайт не меняют. Ключ не нужен. Таблица с ценами и отзывами в тест не входит, она настоящая.</p>
+  <p class="msg" id="netline" role="status">Связь с GitHub: проверяю…</p>
+  <ol>
+    <li>Нажмите «Начать тест».</li>
+    <li>Нажмите на любой текст и напишите своё. Нажмите на фото или кнопку, чтобы заменить.</li>
+    <li>В «Блоках» переставьте, скройте и добавьте блок. Создайте новую страницу.</li>
+    <li>Нажмите «Опубликовать», затем «История» и верните прежнюю версию.</li>
+  </ol>
+  <input id="key" type="hidden"><span id="reponame" hidden></span>
+  <div class="acts"><button id="enter" class="main" type="button">Начать тест</button><button id="ping" type="button" hidden>Проверить связь</button></div>
+  <p class="msg" id="loginmsg" role="status"></p>
+</section>
+
+<div id="app" hidden>
+<header>
+  <select id="page" aria-label="Страница"></select>
+  <button id="new" type="button">+ Страница</button>
+  <button id="toggle" type="button" aria-pressed="false">Блоки</button>
+  <button id="dev" type="button">Вид телефона</button>
+  <button id="undo" type="button" disabled>Шаг назад</button>
+  <span class="sp"></span>
+  <span id="state" role="status"></span>
+  <button id="hist" type="button">История</button>
+  <button id="prev" type="button">Просмотр</button>
+  <button id="pub" type="button" class="main">Опубликовать</button>
+</header>
+<div class="wrapper">
+  <aside id="side">
+    <div class="sheethead"><b>Блоки страницы</b><button id="done" type="button">Готово</button></div>
+    <h2>Блоки страницы</h2>
+    <div id="blocks"></div>
+    <h2>Добавить блок</h2>
+    <div class="add">
+      <button type="button" data-add="text">Заголовок и текст</button>
+      <button type="button" data-add="cards">Три карточки</button>
+      <button type="button" data-add="cta">Призыв с кнопкой</button>
+    </div>
+    <h2>Как менять</h2>
+    <p class="hint">Текст: нажмите на него и печатайте. Фото и кнопка: нажмите на них. Цены, отзывы и блог меняются в таблице. Она настоящая: правки в ней меняют настоящий сайт. Черновик хранится только на этом устройстве.</p>
+    <button type="button" id="logout">К началу теста</button>
+  </aside>
+  <main><div id="stage"><iframe id="frame" title="Страница"></iframe></div></main>
+</div>
+</div>
+
+<div id="preview" hidden>
+  <div class="bar"><span>Просмотр черновика. Меню и квиз здесь не работают.</span><button id="closeprev" type="button" class="main">Назад</button></div>
+  <iframe id="prevframe" title="Просмотр" sandbox=""></iframe>
+</div>
+
+<div id="veil" hidden><p id="veiltext" role="status"></p><button id="veilbtn" class="main" type="button" hidden></button><button id="veilalt" type="button" hidden></button></div>
+
+<dialog id="dlg"></dialog>
+<input type="file" id="file" accept="image/*" hidden>
+<script src="config.js"></script>
+<script src="snapshot.js"></script>
+<script src="demo-store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+:root{--bg:#f6f5f2;--panel:#fff;--ink:#1d1d1b;--mut:#6b6a66;--line:#e3e1da;--edge:#8b8a85;--acc:#3f6629;--warn:#7a2342}
+*{box-sizing:border-box;margin:0}
+body{font:15px/1.4 -apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);height:100dvh;display:flex;flex-direction:column}
+button,select,input,textarea{font:inherit;color:inherit}
+button,select{border:1px solid var(--edge);background:var(--panel);border-radius:8px;padding:8px 12px;min-height:40px;cursor:pointer}
+button.main{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+button:disabled{opacity:.4;cursor:default}
+header{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header .sp{flex:1}
+#state{color:var(--mut);font-size:13px;min-width:120px}
+.wrapper{flex:1;display:flex;min-height:0}
+aside{width:320px;overflow:auto;background:var(--panel);border-right:1px solid var(--line);padding:12px}
+aside h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--mut);margin:8px 0}
+.blk{border:1px solid var(--line);border-radius:10px;padding:8px;margin-bottom:8px}
+.blk.off{opacity:.55}
+.blk .t{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-wrap:balance;width:100%;text-align:left;border:0;padding:0;margin-bottom:8px;min-height:0;font-weight:600;background:none}
+.blk .row{display:flex;gap:6px;flex-wrap:wrap}
+.blk .row button[data-a=del]{color:#a1261d;margin-left:auto;border-color:transparent}
+.blk .row button:disabled{border-color:var(--line)}
+.sheethead{display:none}
+#toggle[aria-pressed=true]{background:var(--ink);color:#fff}
+.blk .row button{padding:4px 9px;min-height:36px;font-size:13px}
+.add{display:grid;gap:6px}
+main{flex:1;display:flex;justify-content:center;overflow:clip;padding:12px;min-width:0}
+#stage{position:relative;background:#fff;box-shadow:0 1px 12px rgba(0,0,0,.12);height:100%;overflow:clip}
+iframe{border:0;transform-origin:0 0;display:block;background:#fff}
+dialog{border:1px solid var(--line);border-radius:14px;padding:18px;width:min(440px,92vw);margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.35)}
+dialog h3{margin-bottom:10px;font-size:18px}
+dialog label{display:block;margin:10px 0 4px;font-size:13px;color:var(--mut)}
+dialog input,dialog textarea{width:100%;border:1px solid var(--edge);border-radius:8px;padding:9px}
+dialog .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.ver{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);padding:8px 0;font-size:14px}
+#toggle{display:none}
+/* phone and tablet: the block list is a bottom sheet, the toolbar is a two-row grid */
+@media(max-width:1099px){
+  #toggle{display:inline-block}
+  aside{position:fixed;left:0;right:0;bottom:0;width:auto;max-height:62dvh;border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.18);transform:translateY(110%);transition:transform .2s;visibility:hidden;z-index:5;padding-top:0}
+  aside.open{transform:none;visibility:visible}
+  .sheethead+h2{display:none}
+  .sheethead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--panel);padding:8px 0;z-index:1}
+  .blk .row{display:grid;grid-template-columns:44px 44px 1fr 1fr}
+  .blk .row button{min-height:44px;min-width:44px}
+  .blk .row button[data-a=copy]{grid-column:span 3;justify-self:start}
+  .blk .row button[data-a=del]{margin-left:0;justify-self:end}
+  .add button,#logout,.sheethead button{min-height:44px}
+  header{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;padding:6px}
+  header .sp{display:none}
+  header button,header select{font-size:14px;padding:4px;min-width:0;min-height:44px;white-space:nowrap}
+  #page{order:1;grid-column:span 4}#toggle{order:2;grid-column:span 3}#pub{order:3;grid-column:span 5}
+  #new,#undo,#dev,#hist,#prev{order:4;grid-column:span 3}
+  #state{position:fixed;left:8px;bottom:8px;min-width:0;max-width:calc(100% - 16px);background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:6;font-size:13px;pointer-events:none;transition:opacity .3s}
+  #state:empty,#state.quiet{opacity:0}
+}
+@media(min-width:760px) and (max-width:1099px){#new,#undo,#hist,#prev{grid-column:span 2}#dev{grid-column:span 4}}
+@media(min-width:600px) and (max-width:1099px){.blk .row{display:flex}.blk .row button{flex:none}.blk .row button[data-a=del]{margin-left:auto}}
+@media(max-width:759px){main{padding:0}#dev{display:none}}
+#preview{position:fixed;inset:0;z-index:20;background:var(--panel);display:flex;flex-direction:column}
+#preview[hidden],#login[hidden],#app[hidden]{display:none}
+#preview .bar{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--line);font-size:13px;color:var(--mut)}
+#preview iframe{flex:1;width:100%;transform:none}
+#app{display:contents}
+#login{max-width:520px;margin:0 auto;padding:24px 16px;overflow:auto;width:100%}
+#login h1{font-size:22px;margin-bottom:12px}
+#login ol{padding-left:20px;margin:12px 0}#login li{margin-bottom:8px}
+#login input{width:100%;border:1px solid var(--edge);border-radius:8px;padding:10px;margin:8px 0}
+#login .acts{display:flex;gap:8px;flex-wrap:wrap}
+#login .msg{margin-top:12px;min-height:20px}
+.hint{color:var(--mut);font-size:13px;margin-bottom:12px}
+dialog p+p{margin-top:8px}
+.warn{color:#a1261d;font-weight:700}
+#login h1+p{margin-bottom:4px}
+body>#login{margin:auto}
+#login a{color:inherit;font-weight:700}
+#login button,#login input{min-height:44px}
+#login .msg.bad{color:#a1261d;font-weight:600}
+#veil{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center;padding:24px;text-align:center;background:rgba(246,245,242,.92);font-size:17px}
+#veil[hidden]{display:none}
+/* a quick load should not flash */
+#veil.waiting{opacity:0;animation:show .2s .35s forwards}
+@keyframes show{to{opacity:1}}
+#dlgerr:empty{display:none}
+dialog{max-height:90dvh;overflow:auto}
+#demobar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:4px 10px;background:#fdf0c8;color:#4a3500;font-size:13px}
+#demobar button{min-height:32px;padding:4px 10px;font-size:13px;background:#fff}
